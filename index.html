@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yon Hub | The Future</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Orbitron',sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* ===== Animated Grid Background ===== */
+.grid-bg{
+position:fixed;
+width:200%;
+height:200%;
+background-image:
+linear-gradient(rgba(0,255,255,0.1) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0,255,255,0.1) 1px, transparent 1px);
+background-size:60px 60px;
+transform:rotateX(60deg);
+animation:moveGrid 20s linear infinite;
+z-index:-3;
+}
+
+@keyframes moveGrid{
+0%{transform:rotateX(60deg) translateY(0);}
+100%{transform:rotateX(60deg) translateY(60px);}
+}
+
+/* ===== Floating Orbs ===== */
+.orb{
+position:fixed;
+border-radius:50%;
+filter:blur(80px);
+opacity:0.6;
+z-index:-2;
+animation:float 15s infinite alternate ease-in-out;
+}
+
+.orb1{
+width:400px;
+height:400px;
+background:#00f0ff;
+top:10%;
+left:10%;
+}
+
+.orb2{
+width:300px;
+height:300px;
+background:#0077ff;
+bottom:10%;
+right:10%;
+}
+
+@keyframes float{
+from{transform:translateY(-50px);}
+to{transform:translateY(50px);}
+}
+
+/* ===== Particles ===== */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* ===== NAV ===== */
+nav{
+position:fixed;
+width:100%;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav h1{
+font-weight:800;
+letter-spacing:3px;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00f0ff;
+}
+
+section{
+min-height:100vh;
+padding:150px 10%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.hero h2{
+font-size:60px;
+}
+
+.hero span{
+color:#00f0ff;
+text-shadow:0 0 20px #00f0ff;
+}
+
+.button{
+margin-top:40px;
+padding:15px 40px;
+background:linear-gradient(90deg,#00f0ff,#0077ff);
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+
+.button:hover{
+transform:scale(1.1);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:30px;
+border:1px solid rgba(255,255,255,0.1);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-15px);
+border-color:#00f0ff;
+}
+
+.pricing-box{
+background:rgba(255,255,255,0.05);
+padding:40px;
+border-radius:20px;
+text-align:center;
+margin-top:60px;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.price{
+font-size:40px;
+color:#00f0ff;
+margin:20px 0;
+}
+
+.footer{
+text-align:center;
+padding:40px;
+background:black;
+opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid-bg"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<canvas id="particles"></canvas>
+
+<nav>
+<h1>YON HUB</h1>
+<ul>
+<li><a href="#plans">Plans</a></li>
+<li><a href="#games">Games</a></li>
+<li><a href="#pricing">Pricing</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<h2>The Future of <span>Yon Hub</span></h2>
+<p>Yon Hub is evolving. These are our upcoming plans for sports games and competitive experiences.</p>
+<button class="button" onclick="scrollToSection('plans')">View Plans</button>
+</section>
+
+<section id="plans">
+<h2>Upcoming Plans</h2>
+<div class="cards">
+<div class="card"><h3>Smart Fit</h3><p>Advanced route precision systems.</p></div>
+<div class="card"><h3>Mag Enhancers</h3><p>Enhanced catch consistency.</p></div>
+<div class="card"><h3>Swat Enhancers</h3><p>Defensive optimization tools.</p></div>
+<div class="card"><h3>Auto OL</h3><p>Improved blocking intelligence.</p></div>
+</div>
+</section>
+
+<section id="games">
+<h2>Planned Games</h2>
+<div class="cards">
+<div class="card"><h3>Football Fusion 2</h3></div>
+<div class="card"><h3>Basketball Legends</h3></div>
+<div class="card"><h3>Volleyball Legends</h3></div>
+<div class="card"><h3>Racket Rivals</h3></div>
+</div>
+</section>
+
+<section id="pricing">
+<h2>Lifetime Access (Planned)</h2>
+<div class="pricing-box">
+<p>One-Time Payment</p>
+<div class="price">500 Robux</div>
+<p>OR</p>
+<div class="price">$5 Cash App</div>
+<p>OR</p>
+<div class="price">2 Boosts</div>
+<button class="button" onclick="window.open('https://discord.gg/XSFCZE4bm4', '_blank')">
+Buy Now
+</button>
+</div>
+</section>
+
+<div class="footer">
+© 2026 Yon Hub — Future Plans
+</div>
+
+<script>
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* ===== Particle System ===== */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<120;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+radius:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+ctx.fillStyle="#00f0ff";
+ctx.fill();
+
+p.x+=p.dx;
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width) p.dx*=-1;
+if(p.y<0||p.y>canvas.height) p.dy*=-1;
+});
+
+requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
